@@ -1,14 +1,14 @@
 TAREFA:
 -Receber calculo
 -Devolver Notação posfixa
-
+*******************************************************************************************************
 PARA EXEMPLO:
 flex -o expFlex.c expFlex.l
 
 bison -d expBison.y
 gcc -o calculadora expFlex.c expBison.tab.c -lfl -lm
 ./calculadora
-
+*******************************************************************************************************
 PARA WR:
 flex -o wFlex.c wFlex.l
 
@@ -16,5 +16,5 @@ bison -d wBison.y
 gcc -o wr wFlex.c wBison.tab.c -lfl -lm
 ./wr
 
-*************
-flex -o wFlex.c wFlex.l && bison -d wBison.y && gcc -o wr wFlex.c wBison.tab.c -lfl -lm
+*******************************************************************************************************
+flex -o wFlex.c wFlex.l ; bison -d wBison.y ; gcc -o wr wFlex.c wBison.tab.c -lfl -lm ; ./wr

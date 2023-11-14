@@ -32,15 +32,15 @@ calc:
 ;
 
 line: T_NEWLINE                 
-    |exp T_NEWLINE              {printf("Resultado: %d\n", $1);}
+    | exp T_NEWLINE      {printf("Resultado: %d\n", $1);}
 ;
 
-exp: T_INT                {$$ = $1;}
-    | exp T_SUM exp       {$$ = $1 + $3;}
-    | exp T_SUB exp       {$$ = $1 - $3;}
-    | exp T_MUL exp       {$$ = $1 * $3;}
-    | exp T_DIV exp       {$$ = $1 / $3;}
-    | T_L_PAR exp T_R_PAR {$$ = $2;}
+exp: T_INT               {$$ = $1;}
+   | exp T_SUM exp       {$$ = $1 + $3;}
+   | exp T_SUB exp       {$$ = $1 - $3;}
+   | exp T_MUL exp       {$$ = $1 * $3;}
+   | exp T_DIV exp       {$$ = $1 / $3;}
+   | T_L_PAR exp T_R_PAR {$$ = $2;}
 ;
 
 %%
