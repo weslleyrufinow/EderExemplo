@@ -1,6 +1,5 @@
 flex -o expFlex.c expFlex.l
 bison -d expBison.y
 gcc -o calculadora expFlex.c expBison.tab.c -lfl -lm
-
-flex -o expFlex.c expFlex.l && bison -d expBison.y && gcc -o calculadora expFlex.c expBison.tab.c -lfl -lm && ./calculadora
+./calculadora
 
