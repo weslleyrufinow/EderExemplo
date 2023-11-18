@@ -12,6 +12,7 @@ void yyerror (const char* s);
 
 %union {
     int ival;
+    char* sval;
 }
 
 %token<ival> T_INT
@@ -21,7 +22,7 @@ void yyerror (const char* s);
 %left T_SUM T_SUB
 %left T_MUL T_DIV
 
-%type<ival> exp
+%type<sval> exp
 
 %start calc
 
@@ -32,14 +33,14 @@ calc:
 ;
 
 line: T_NEWLINE                 
-    | exp T_NEWLINE      {printf("Resultado: %d\n", $1);}
+    | exp T_NEWLINE      {printf("Notação posfixa: %s\n", $1); free($1);}
 ;
 
-exp: T_INT               {$$ = $1;}
-   | exp T_SUM exp       {$$ = $1 + $3;}
-   | exp T_SUB exp       {$$ = $1 - $3;}
-   | exp T_MUL exp       {$$ = $1 * $3;}
-   | exp T_DIV exp       {$$ = $1 / $3;}
+exp: T_INT               {asprintf(&$$, "%d", $1);}
+   | exp T_SUM exp       {asprintf(&$$, "%s %s +", $1, $3); free($1); free($3);}
+   | exp T_SUB exp       {asprintf(&$$, "%s %s -", $1, $3); free($1); free($3);}
+   | exp T_MUL exp       {asprintf(&$$, "%s %s *", $1, $3); free($1); free($3);}
+   | exp T_DIV exp       {asprintf(&$$, "%s %s /", $1, $3); free($1); free($3);}
    | T_L_PAR exp T_R_PAR {$$ = $2;}
 ;
 

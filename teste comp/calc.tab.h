@@ -35,8 +35,8 @@
    especially those whose name start with YY_ or yy_.  They are
    private implementation details that can be changed or removed.  */
 
-#ifndef YY_YY_WBISON_TAB_H_INCLUDED
-# define YY_YY_WBISON_TAB_H_INCLUDED
+#ifndef YY_YY_CALC_TAB_H_INCLUDED
+# define YY_YY_CALC_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -55,12 +55,12 @@ extern int yydebug;
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
     T_INT = 258,                   /* T_INT  */
-    T_SUM = 259,                   /* T_SUM  */
-    T_SUB = 260,                   /* T_SUB  */
-    T_MUL = 261,                   /* T_MUL  */
-    T_DIV = 262,                   /* T_DIV  */
-    T_L_PAR = 263,                 /* T_L_PAR  */
-    T_R_PAR = 264,                 /* T_R_PAR  */
+    T_PLUS = 259,                  /* T_PLUS  */
+    T_MINUS = 260,                 /* T_MINUS  */
+    T_MULTIPLY = 261,              /* T_MULTIPLY  */
+    T_DIVIDE = 262,                /* T_DIVIDE  */
+    T_LPAREN = 263,                /* T_LPAREN  */
+    T_RPAREN = 264,                /* T_RPAREN  */
     T_NEWLINE = 265                /* T_NEWLINE  */
   };
   typedef enum yytokentype yytoken_kind_t;
@@ -70,12 +70,11 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 13 "wBison.y"
+#line 16 "calc.y"
 
-    int ival;
     char* sval;
 
-#line 79 "wBison.tab.h"
+#line 78 "calc.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;
@@ -90,4 +89,4 @@ extern YYSTYPE yylval;
 int yyparse (void);
 
 
-#endif /* !YY_YY_WBISON_TAB_H_INCLUDED  */
+#endif /* !YY_YY_CALC_TAB_H_INCLUDED  */
